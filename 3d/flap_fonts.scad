@@ -84,6 +84,15 @@ _font_settings = [
         "offset_y", 0,
         "overrides", [],
     ],
+    
+   "Helvetica", [
+        "font", "Helvetica:style=Bold",
+        "height", 0.7,
+        "width", 0.75,
+        "offset_x", -0.78,
+        "offset_y", 0.5,
+        "overrides", [],
+    ],
 ];
 
 // Private functions

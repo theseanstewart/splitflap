@@ -44,6 +44,22 @@ function get_letter_for_front(flap_index) =
 // The letter (bottom half) on the back of a flap is the same as the letter (top half) on the front of the next flap
 function get_letter_for_back(flap_index) = get_letter_for_front(flap_index + 1);
 
+//color("pink")
+//translate([0, -flap_pin_width/2, 0])
+//translate([-eps, flap_pin_width])
+//    square([eps + flap_notch_depth, flap_notch_height]);
+
+/*
+color("blue")
+translate([0, -flap_pin_width/2, 0])
+translate([-eps, flap_pin_width * 2])
+    square([eps + flap_notch_depth, flap_notch_height + flap_pin_width]);
+
+color("green")
+translate([0, -flap_pin_width/2, 0])
+translate([-eps, 0])
+    square([eps + flap_notch_depth, flap_pin_width]);*/
+
 module flap_2d(cut_tabs = true) {
     translate([0, -flap_pin_width/2, 0])
     difference() {
@@ -60,10 +76,28 @@ module flap_2d(cut_tabs = true) {
         }
         // spool tabs
         if(cut_tabs) {
-            translate([-eps, flap_pin_width])
+            
+            
+            // Left Side
+            translate([-eps, flap_pin_width * 2])
+                square([eps + flap_notch_depth, flap_notch_height + flap_pin_width]);
+
+            translate([-eps, 0])
+                square([eps + flap_notch_depth, flap_pin_width]);
+            
+            // Right Side
+            translate([flap_width - flap_notch_depth, flap_pin_width * 2])
+                square([eps + flap_notch_depth, flap_notch_height + flap_pin_width]);
+
+            translate([flap_width - flap_notch_depth, 0])
+                square([eps + flap_notch_depth, flap_pin_width]);
+            
+            /*
+            translate([-eps, flap_pin_width * 2])
                 square([eps + flap_notch_depth, flap_notch_height]);
-            translate([flap_width - flap_notch_depth, flap_pin_width])
-                square([eps + flap_notch_depth, flap_notch_height]);
+            
+            translate([flap_width - flap_notch_depth, flap_pin_width * 2])
+                square([eps + flap_notch_depth, flap_notch_height]);*/
         }
     }
 }

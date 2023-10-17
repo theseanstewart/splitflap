@@ -14,6 +14,8 @@
    limitations under the License.
 */
 
+/* ORIGINAL SETTINGS
+
 flap_width = 54;
 flap_height = 43;
 flap_thickness = 30 / 1000 * 25.4; // 30 mil
@@ -27,4 +29,20 @@ flap_notch_height = (flap_notch_height_auto == true) ? sqrt(spool_outer_radius*s
 flap_notch_depth = 3.2;
 
 flap_pin_width = 1.4;
+*/
+
+flap_width = 43;
+flap_height = 35;
+flap_thickness = 30 / 1000 * 25.4; // 30 mil
+flap_corner_radius = 0; // 2.88-3.48mm (used just for display)
+
+flap_notch_height_auto = false;
+//flap_notch_height_default = 18;
+flap_notch_height_default = 15.6;
+
+flap_notch_height = (flap_notch_height_auto == true) ? sqrt(spool_outer_radius*spool_outer_radius - flap_pitch_radius*flap_pitch_radius) : flap_notch_height_default;
+
+flap_notch_depth = 2;
+
+flap_pin_width = 1.2;
 
