@@ -23,3 +23,7 @@ sensor.xml
 bin
 lib
 env
+
+### VisualStudioCode ###
+.vscode/*      # Maybe .vscode/**/* instead - see comments
+!.vscode/extensions.json
